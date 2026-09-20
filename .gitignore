@@ -1,0 +1,48 @@
+# secrets and local config
+.env
+.env.*
+*.key
+*.pem
+*token*
+secrets.*
+
+# environments and caches
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+.coverage
+coverage.xml
+htmlcov/
+*.egg-info/
+build/
+dist/
+.ipynb_checkpoints/
+
+# editor and OS metadata
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# model weights / downloads (HF caches live outside the repo by default)
+huggingface/
+models/
+*.safetensors
+*.gguf
+*.pt
+*.pth
+*.onnx
+
+# large experiment outputs (the small committed quick run lives in results/quick/)
+results/*
+!results/quick/
+!results/README.md
+
+# release artefact
+*.zip
