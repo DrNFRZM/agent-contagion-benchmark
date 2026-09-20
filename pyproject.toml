@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-contagion-benchmark"
+version = "0.1.0"
+description = "Small, safe benchmark for topology-dependent fault contagion in LLM multi-agent systems (synthetic facts, deterministic mock backend)."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Farzam Nikbakhsh Jorshari", email = "nikbakhshfarzam@gmail.com" }]
+dependencies = [
+    "networkx>=3.0",
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "matplotlib>=3.7",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4"]
+hf = ["torch", "transformers>=4.40"]   # optional local-model backend; never installed by CI
+
+[project.scripts]
+acb = "acb.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

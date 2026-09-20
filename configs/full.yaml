@@ -1,0 +1,26 @@
+# Full grid (MockLLM). 4 x 3 x 4 x 3 x 2 x 2 = 576 cells x 10 seeds = 5,760 fault runs (+ controls).
+# Expect roughly an hour or more on one CPU core (the cost grows with the number of agents); results are NOT committed to the repo.
+# Run:  acb run --config configs/full.yaml --out results/full --progress
+name: full
+seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+base:
+  backend: mock             # switch to `hf` or `api` only for small sanity runs, see docs/architecture.md
+  n_facts: 8
+  rounds: 40
+  repair_round: 15
+  message_facts: 2
+  peer_trust: 0.7
+  base_conf: 0.6
+  injected_conf: 1.0
+  coverage: 0.6
+  ttl: 5
+  fanout: null
+
+grid:
+  topology: [star, pipeline, dag, graph]
+  n_agents: [8, 16, 32]
+  retention: [keep_all, overwrite, ttl, bounded]
+  comm_prob: [0.3, 0.6, 1.0]
+  roles: [homogeneous, heterogeneous]
+  fault_location: [central, peripheral]

@@ -1,0 +1,24 @@
+# Quick deterministic experiment: MockLLM only, CPU, normally under one minute.
+# 4 topologies x 3 retention policies x 2 fault locations x 5 seeds = 120 fault runs (+ paired controls).
+name: quick
+seeds: [0, 1, 2, 3, 4]
+
+base:                       # any field of acb.config.RunConfig
+  backend: mock
+  n_agents: 8
+  n_facts: 8
+  rounds: 30
+  repair_round: 10          # source's injected entry is restored at the start of round 10
+  message_facts: 2          # claims per message
+  comm_prob: 0.7            # probability that an edge is used in a round
+  peer_trust: 0.7
+  base_conf: 0.6            # confidence of seeded true memories
+  injected_conf: 1.0        # confidence of the injected false memory
+  coverage: 0.6             # each agent starts with ~60% of the clean facts (target: everyone)
+  roles: homogeneous
+  ttl: 5
+
+grid:
+  topology: [star, pipeline, dag, graph]
+  retention: [keep_all, overwrite, ttl]
+  fault_location: [central, peripheral]
