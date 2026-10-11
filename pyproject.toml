@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "agent-contagion-benchmark"
 version = "0.1.0"
-description = "Small, safe benchmark for topology-dependent fault contagion in LLM multi-agent systems (synthetic facts, deterministic mock backend)."
+description = "Simulation of false-memory spread and recovery across agent communication networks."
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }

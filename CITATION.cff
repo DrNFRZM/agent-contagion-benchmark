@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this benchmark, please cite it as below."
-title: "agent-contagion-benchmark: topology-dependent fault contagion in LLM multi-agent systems"
+title: "agent-contagion-benchmark: a simulation of false-memory spread and recovery"
 type: software
 version: 0.1.0
 authors:

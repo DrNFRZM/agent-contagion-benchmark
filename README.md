@@ -1,13 +1,14 @@
 # agent-contagion-benchmark
 
-**Topology-dependent fault contagion in LLM multi-agent systems** — a small, safe, reproducible benchmark.
+A simulation of how a false memory spreads through different agent communication networks.
+All reported experiments use a deterministic mock reader, not a real LLM.
 
 One harmless false fact is planted in exactly one agent's memory ("the capital of the fictional planet Veloria
 is *Mira*", true value *Arden*). Agents then exchange notes over a fixed communication topology. The benchmark
 measures how far the false belief spreads, how fast, whether it survives after the original source is repaired,
 and whether it damages unrelated answers.
 
-The motivating question, for a possible MSc thesis on decentralised LLM agent security:
+The motivating question:
 
 > Does decentralisation reduce systemic risk, or does it only change *how* failures propagate?
 
@@ -41,6 +42,8 @@ Read [Limitations](#limitations) before drawing any conclusion from the numbers 
 ## Quick start
 
 Requires Python 3.11+ (developed on 3.12).
+See the [reproduction check](docs/reproducibility.md) for the tested environment
+and comparison with the committed mock-run tables.
 
 ```bash
 pip install -e ".[dev]"
@@ -65,7 +68,7 @@ acb run --config configs/quick.yaml --out results/quick
 
 CSV line endings and rendered PNG pixels can still vary by operating system.
 
-## Quick-experiment output (genuine, MockLLM)
+## Quick-experiment results (mock reader)
 
 24 grid cells (4 topologies × 3 retention policies × 2 fault locations) × 5 seeds = 120 fault runs, each with a paired
 no-fault control; 8 agents, 30 rounds, source repaired at round 10.
