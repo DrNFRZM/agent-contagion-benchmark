@@ -154,3 +154,7 @@ this release, and no real-model results are included.
 ## License and author
 
 MIT. Author: Farzam Nikbakhsh Jorshari.
+
+This is an independently developed personal project. See [development and
+attribution](docs/development.md) for the distinction between the original
+implementation and the November 2026 AI-assisted maintenance work.
